@@ -1,0 +1,428 @@
+body {
+ background-color: $yellow;
+
+ &.inside-background-style {
+  background-image: linear-gradient(-5deg, #fff 50%, #ffd370 50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+ }
+
+}
+
+::placeholder {
+ color: $gray1;
+}
+
+.login,
+.register {
+ section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc($gutter*3);
+  padding-bottom: calc($gutter*3);
+  justify-content: center;
+  gap: calc($gutter*1);
+
+  @include md {
+   flex-direction: row;
+   padding-top: calc($gutter*5);
+   padding-bottom: calc($gutter*5);
+   gap: calc($gutter*3);
+  }
+
+  .left {
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: $gutter;
+
+   .logo {
+    max-width: 312px;
+    width: 100%;
+   }
+
+   .computer-show {
+    display: none;
+
+    @include md {
+     display: block;
+    }
+   }
+  }
+
+  .right {
+   width: 100%;
+   max-width: 304px;
+
+   .form-style {
+    display: flex;
+    flex-direction: column;
+    gap: $gutter;
+
+    h2 {
+     font-size: 1.25rem;
+     text-align: center;
+     margin-bottom: 0.5rem;
+
+     @include md {
+      font-size: 1.5rem;
+      text-align: left;
+      margin-bottom: 0;
+     }
+    }
+
+    .input-contentGroups {
+     display: flex;
+     flex-direction: column;
+     gap: calc($gutter*0.66);
+
+     @include md {
+      gap: calc($gutter/2);
+     }
+    }
+
+    .input-groups {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+
+     label {
+      font-size: 0.9375rem;
+     }
+
+     input {
+      border: none;
+      box-shadow: none;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-weight: 400;
+      color: $gray1;
+
+      &.main-btn {
+       width: fit-content;
+       padding: 0.75rem 3rem;
+       margin: auto;
+       background-color: $gray0;
+       color: white;
+       font-weight: 700;
+       cursor: pointer;
+      }
+
+      &.sub-btn {
+       background-color: transparent;
+       color: $gray0;
+       font-weight: 700;
+       padding: 0;
+       cursor: pointer;
+      }
+     }
+
+     .alert {
+      color: $red;
+      font-size: 0.875rem;
+     }
+    }
+   }
+
+  }
+ }
+}
+
+.insidePage {
+ section {
+  padding-top: calc($gutter * 0.5);
+  padding-bottom: calc($gutter * 2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+
+
+  .empty-text {
+   text-align: center;
+   font-weight: 400;
+   margin-bottom: 1rem;
+  }
+
+  .empty1 {
+   max-width: 240px;
+   margin: auto;
+   display: block;
+  }
+
+  .searchGroup,
+  .controlGroup {
+   box-sizing: border-box;
+   width: 100%;
+   max-width: 500px;
+   margin: auto;
+   background-color: white;
+   border-radius: 10px;
+   box-shadow: 0 0 15px #00000026;
+  }
+
+  .searchGroup {
+   display: flex;
+   justify-content: space-between;
+   padding: 0.25rem 1rem;
+   padding-right: 0.25rem;
+   gap: calc($gutter/2);
+
+   #input-todolist {
+    width: auto;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    width: 100%;
+    font-weight: 400;
+
+    &:focus-visible {
+     outline-width: 0;
+    }
+   }
+
+   #add-todolist-btn {
+    cursor: pointer;
+   }
+  }
+
+  .controlGroup {
+   &.none-todo {
+    margin-top: 3rem;
+    background-color: transparent;
+    box-shadow: none;
+   }
+
+   .controlGroup-menu {
+    display: flex;
+    align-items: center;
+
+    li {
+     width: 100%;
+     padding: 1rem;
+     text-align: center;
+     color: $gray1;
+     border-bottom: 2px solid;
+     border-color: $gray2;
+     cursor: pointer;
+
+     &:hover {
+      color: $gray0;
+     }
+
+     &.check {
+      color: $gray0;
+      border-color: $gray0;
+     }
+    }
+   }
+
+   .todilist-control-form {
+    padding: $gutter;
+    padding-right: calc($gutter *2);
+
+    font-weight: 400;
+
+    .todilist-control-form-itemGroup {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     margin-bottom: 1rem;
+
+     .todilist-control-form-item {
+      padding-bottom: calc(1rem - 1px);
+      border-bottom: 1px solid $gray2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+
+      .todilist-control-form-item-in {
+       display: flex;
+       align-items: center;
+       gap: 1rem;
+       width: 100%;
+       position: relative;
+
+       input[type="checkbox"i]:focus-visible {
+        outline-width: 0px;
+       }
+
+       label {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        div {
+         font-weight: 400;
+        }
+       }
+
+
+       .check-group {
+        position: relative;
+        padding-left: calc(1.25rem + 1rem);
+
+        .check-btn {
+         position: absolute;
+         opacity: 0;
+         cursor: pointer;
+         height: 0;
+         width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+         left: 0;
+         height: 1.25rem;
+         width: 1.25rem;
+         background-color: white;
+         border: 1px solid $gray1;
+         border-radius: 5px;
+         cursor: pointer;
+
+         /* Create the checkmark/indicator (hidden when not checked) */
+         &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: .25rem;
+          top: .09rem;
+          width: .2rem;
+          height: .4rem;
+          // border: solid $gray1;
+          border: none;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+         }
+        }
+
+        /* On mouse-over, add a grey background color */
+        &:hover input~.checkmark {}
+
+        /* When the checkbox is checked, add a blue background */
+        input:checked~.checkmark {
+         background-color: transparent;
+         background-image: url(img/check1.svg);
+         background-size: contain;
+         background-position: center;
+         cursor: pointer;
+         border: none;
+
+         /* Show the checkmark when checked */
+         &:after {
+          display: block;
+         }
+        }
+
+       }
+
+       .delmark {
+        display: block;
+        position: absolute;
+        background-image: url(img/close1.svg);
+        background-position: center;
+        background-size: contain;
+        width: 1rem;
+        height: 1rem;
+        right: calc($gutter * -1.25);
+        cursor: pointer;
+       }
+      }
+      label {
+       font-weight: 400;
+       color: $gray0;
+      }
+      &.done {
+       .todilist-control-form-item-in {
+
+        label {
+         div {
+          color: $gray1;
+          text-decoration: line-through;
+         }
+        }
+       }
+       .delmark {
+        display: none;
+       }
+      }
+     }
+
+    }
+
+    .todilist-control-form-state {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+     .todilist-control-form-state-text {
+      font-weight: 400;
+     }
+
+     #clear-finish-list {
+      font-weight: 400;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      color: $gray1;
+      cursor: pointer;
+     }
+    }
+   }
+  }
+ }
+}
+
+header {
+ section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+  gap: $gutter;
+
+  .logo {
+   max-width: 242.51px;
+   width: calc(100% - $gutter * 2);
+  }
+
+  .header-infoGroup {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: $gutter;
+
+   #user-name {
+    display: none;
+
+    @include md {
+     display: block;
+    }
+   }
+
+   .logout-btn {
+    border: none;
+    box-shadow: none;
+    font-weight: 400;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    font-size: 0.875rem;
+
+    @include md {
+     font-size: 1rem;
+    }
+   }
+  }
+ }
+}

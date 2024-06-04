@@ -311,7 +311,7 @@ body {
         /* When the checkbox is checked, add a blue background */
         input:checked~.checkmark {
          background-color: transparent;
-         background-image: url(img/check1.svg);
+         background-image: url(../img/check1.svg);
          background-size: contain;
          background-position: center;
          cursor: pointer;
@@ -328,7 +328,7 @@ body {
        .delmark {
         display: block;
         position: absolute;
-        background-image: url(img/close1.svg);
+        background-image: url(../img/close1.svg);
         background-position: center;
         background-size: contain;
         width: 1rem;

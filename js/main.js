@@ -376,7 +376,7 @@ function isTodoListPageStatus(data) {
   empty: () => {
    controlGroupClass.classList.add("none-todo");
    str = `<p class="empty-text">目前尚無代辦事項</p>
-  <img class="empty1" src="img/empty1.png" alt="img" />`;
+  <img class="empty1" src="../img/empty1.png" alt="img" />`;
   },
   unEmpty: () => {
    controlGroupClass.classList.remove("none-todo");

@@ -21,11 +21,11 @@ function load(url) {
 
 let promisePagesInfo = [
  // { url: "/component/footer.html", pageName: "footer" },
- { url: "../component/header.html", pageName: "header" },
+ { url: "./component/header.html", pageName: "header" },
 
- { url: "../component/login.html", pageName: "login" },
- { url: "../component/register.html", pageName: "register" },
- { url: "../component/insidePage.html", pageName: "insidePage" }
+ { url: "./component/login.html", pageName: "login" },
+ { url: "./component/register.html", pageName: "register" },
+ { url: "./component/insidePage.html", pageName: "insidePage" }
 ]
 //
 
